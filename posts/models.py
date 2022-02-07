@@ -1,5 +1,7 @@
+from email.mime import image
 from pyexpat import model
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -14,6 +16,14 @@ class Post(models.Model):
 
     body = models.CharField(
         'Body', blank=True, null=True, max_length=140, db_index=True
+    )
+
+    image = CloudinaryField(
+        'image', blank=True
+    )
+
+    like_count = models.PositiveBigIntegerField(
+        'like_count', default=0, blank=True
     )
 
     created_at = models.DateTimeField(

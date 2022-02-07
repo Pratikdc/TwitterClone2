@@ -10,10 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,8 +29,8 @@ SECRET_KEY = 'django-insecure-yg5pjt#g_&2z8yu5w$awza3h#r=x&ty!ll5ld#n#*(19t(5(3m
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# added
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,11 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'posts'
+    'posts',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # added middleware dependency
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,11 +128,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Cloudinary configuration files
+cloudinary.config(
+    # cloud name
+    cloud_name="asdaf",
+    # api_key
+    api_key="727992255772456",
+    # api_secret_key
+    api_secret="flwQUSR64bDv7zzhJOYsCn_UQBc"
+)
+
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

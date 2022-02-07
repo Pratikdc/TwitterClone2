@@ -18,6 +18,11 @@ class Migration(migrations.Migration):
                  primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(db_index=True,
                  default='Anonymous', max_length=14, verbose_name='Name')),
+                ('body', models.CharField(blank=True, db_index=True,
+                 max_length=140, null=True, verbose_name='Body')),
+                ('created at', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Created Datetime'
+                )),
             ],
             options={
                 'db_table': 'post',
