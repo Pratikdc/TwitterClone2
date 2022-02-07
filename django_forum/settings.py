@@ -82,10 +82,20 @@ WSGI_APPLICATION = 'django_forum.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "d667dmfkd0g3p8",
+        "USER": "secrvsthqtvwfg",
+        "HOST": "ec2-44-194-113-156.compute-1.amazonaws.com",
+        "PORT": 5432,
+        "PASSWORD": "58c314c191891cfc7dfbef18ccf4de407a32aa52a39d4010053fda49c1d91992",
     }
 }
 
@@ -146,3 +156,4 @@ STATICFILES_DIRS = (
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
