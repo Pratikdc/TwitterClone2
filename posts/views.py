@@ -59,6 +59,6 @@ def like(request, post_id):
     # Find Post
     post = Post.objects.get(id=post_id)
     newlikecount = post.like_count+1
-    post.like_count = newlikecount
+    post.like_count = int(newlikecount)
     post.save()
     return HttpResponseRedirect('/')

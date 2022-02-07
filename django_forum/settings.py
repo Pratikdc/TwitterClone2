@@ -130,12 +130,9 @@ STATIC_URL = '/static/'
 
 # Cloudinary configuration files
 cloudinary.config(
-    # cloud name
-    cloud_name="asdaf",
-    # api_key
-    api_key="727992255772456",
-    # api_secret_key
-    api_secret="flwQUSR64bDv7zzhJOYsCn_UQBc"
+    cloud_name="tech-i-s-india-pvt-ltd",
+    api_key="483216177577761",
+    api_secret="66c6jFUDUwOEOyftPJ7f8uHP95Q"
 )
 
 STATIC_URL = '/static/'

@@ -41,8 +41,10 @@
                     <div class="name">{{ post.name }}</div>
                     <div class ="datetime">{{ post.created_at }}</div>
                     <p>{{ post.body}}</p>
-                    <a href="/delete/{{ post.id }}/">delete</a>
-                    <img src="{{ post.image.url}} " style="width:300px ">
+                    {% if post.image.url %}
+                        <img class="Image" src="{{ post.image.url }}" style="width: 100%;" />
+                    {% endif %}
+                    <a href="/delete/{{ post.id }}/"></a>
 
                     <div>
                         <a href="/like/{{post.id}}/ ">
