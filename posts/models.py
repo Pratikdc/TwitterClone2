@@ -2,6 +2,7 @@ from email.mime import image
 from pyexpat import model
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -19,7 +20,7 @@ class Post(models.Model):
     )
 
     image = CloudinaryField(
-        'image', blank=True
+        'image', blank=True, db_index=True,
     )
 
     like_count = models.PositiveBigIntegerField(

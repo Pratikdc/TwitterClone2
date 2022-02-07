@@ -1,64 +1,66 @@
-{% extends "base.html" %}
-{% block content %}
-{% load static %}
+{% extends "base.html" %} {% block content %} {% load static %}
 <section class="content">
-    <div class="main">
-        <div class="main-header">
-            <img src="/static/img/techis-logo.png" class="logo">
-            <h1>Home</h1>
-        </div>
+  <div class="main">
+    <div class="main-header">
+      <img src="/static/img/techis-logo.png" class="logo" />
+      <h1>Home</h1>
     </div>
-    <section class="post_form">
-        <form action="/" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="text" name="name" placeholder="Name" required />
-            <textarea name="body" placeholder="Tell us anything!" required></textarea>
-            <input type="submit" value="Post" />
-            <input type="file" name="image" />
-            <!-- <input type="submit" value="Tweet" style="margin-left: 150px; " /> -->
-            <div class=“bottom-area”>
+  </div>
+  <section class="post_form">
+    <!-- <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Name" />
+      <textarea name="body" placeholder="What's Happening?"></textarea>
+      <div class="tweet">
+        <button type="submit" value="Tweet">Tweet</button>
+      </div>
+      <input type="file" name="image" />
+    </form> -->
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="name" />
+      <textarea name="body" placeholder="What's Happening?"></textarea>
+      <input type="file" name=" image" />
+      <button type="submit">Tweet</button>
+    </form>
+  </section>
+  <section class="posts">
+    <ul>
+      {% for post in posts %}
+      <li>
+        <img class="menu_icon js-menu-icon" src="{% static 'img/menu.png' %}" />
+        <div class="menu">
+          <a href="/delete/{{ post.id }}/">Delete</a><br />
+          <a href="/update/{{ post.id }}/">Edit</a>
+        </div>
+        <div class="logo">
+          <img src="{% static 'img/user.png' %}" />
+        </div>
+        <div class="name_body">
+          <div class="name">{{ post.name }}</div>
+          <div class="datetime">{{ post.created_at }}</div>
+          <p>{{ post.body}}</p>
+          {% if post.image.url %}
+          <img class="Image" src="{{ post.image.url }}" style="width: 100%" />
+          {% endif %}
+          <a href="/delete/{{ post.id }}/"></a>
 
-                <button class="btn btn-primary" type=“submit” style="color:black;background-color: aqua; margin-right: 30px;">Tweet</button>
-            </div>
-        </form>
-    </section>
-    <section class="posts">
-        {% if tweets.count == 0 %}
-        <p class="p-3 ">There is no tweet now.</p>
-        {% else %}
-        <ul>
-            {% for post in posts %} 
-            <li>
-                <img class="menu_icon js-menu-icon" src="{% static 'img/menu.png' %}" />
-                <div class="menu">
-                    <a href="/delete/{{ post.id }}/">Delete</a><br>
-                    <a href="/update/{{ post.id }}/">Edit</a>
-                </div>
-                <div class="logo">
-                    <img src="{% static 'img/user.png' %}" />
-                </div>
-                <div class="name_body">
-                    <div class="name">{{ post.name }}</div>
-                    <div class ="datetime">{{ post.created_at }}</div>
-                    <p>{{ post.body}}</p>
-                    {% if post.image.url %}
-                        <img class="Image" src="{{ post.image.url }}" style="width: 100%;" />
-                    {% endif %}
-                    <a href="/delete/{{ post.id }}/"></a>
-
-                    <div>
-                        <a href="/like/{{post.id}}/ ">
-                            <img src="{% static 'img/like.png' %} " style="width: 30px "></a>
-                        {{post.like_count}}
-
-                    </div>
-                </div>
-            </li> 
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </section>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="{% static 'js/posts.js' %}"></script>
+          <div>
+            <a href="/like/{{post.id}}/ ">
+              <img src="{% static 'img/like.png' %} " style="width: 30px"
+            /></a>
+            {{post.like_count}}
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"
+  ></script>
+  <script src="{% static 'js/posts.js' %}"></script>
 </section>
 {% endblock %}

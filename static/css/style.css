@@ -9,7 +9,7 @@ body {
 
 .content {
   max-width: 600px;
-  height: 100%;
+  height: fit-content;
   margin: 0 auto;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
@@ -61,8 +61,15 @@ post
   flex-grow: 1;
 }
 
-.bottom-area .btn {
+button {
   margin-top: 10px;
+  color: #e6fef7;
+  background-color: #3494dd;
+  margin-left: 5%;
+  width: 16%;
+  height: 41px;
+  border: none;
+  border-radius: 5px;
 }
 
 .post_form input {

@@ -1,17 +1,18 @@
-from urllib import request
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 
-from posts.forms import Postform
+from .forms import Postform
 from .models import Post
-
+from cloudinary.forms import cl_init_js_callbacks
+from django.urls import reverse_lazy, reverse
 # Create your views here.
 
 
 def index(request):
     # If the method is POST
     if request.method == 'POST':
-        form = Postform(request.POST)
+        form = Postform(request.POST, request.FILES)
         # If the form is valid
         if form.is_valid():
             # yes save
@@ -23,7 +24,7 @@ def index(request):
             # no show error
             return HttpResponseRedirect(form.errors.as_json)
 
-    posts = Post.objects.all()[:20]
+    posts = Post.objects.all().order_by('-created_at')[:20]
 
     return render(request, 'posts.html',
                   {'posts': posts})
