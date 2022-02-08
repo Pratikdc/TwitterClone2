@@ -41,7 +41,11 @@
           <div class="datetime">{{ post.created_at }}</div>
           <p>{{ post.body}}</p>
           {% if post.image.url %}
-          <img class="Image" src="{{ post.image.url }}" style="width: 100%" />
+          <img
+            class="Image"
+            src="{{ post.image.url }}"
+            style="width: 300px; height: 300px"
+          />
           {% endif %}
           <a href="/delete/{{ post.id }}/"></a>
 
