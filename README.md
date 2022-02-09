@@ -8,7 +8,7 @@ So there are not user accounts and follow function. You can challenge after you 
 
 Check out [LIVE Twitter clone DEMO](https://twitterclone-pratik.herokuapp.com/) here!!
 
-![Screenshot 2021-10-08 at 2 01 41 PM](https://user-images.githubusercontent.com/89776958/136524680-d3134262-9fbb-4cc2-9d2e-1f29a5821c2d.png)
+![Screenshot 2021-10-08 at 2 01 41 PM](https://github.com/Pratikdc/TwitterClone2/blob/main/static/img/Screenshot%202022-02-09%20at%209.32.14%20AM.png)
 
 ## Tech used
 
