@@ -1,14 +1,31 @@
-# TwitterClone2
-* This the project for Twitter clone . 
+# Twitter-Clone
 
-# Project summary
-* Here in this project, one can add, delete, and edit the tweet. With this user can also upload any image.
+```
+Let's make simple Twitter. Users can post tweets and see everyone's them.
+To make the project simple, we do not have a sign/login function.
+So there are not user accounts and follow function. You can challenge after you finish the course.
+```
 
-# Technologies used
-* HTML
-* CSS
-* Javascript / Jquery
+Check out [LIVE Twitter clone DEMO](https://twitterclone-pratik.herokuapp.com/) here!!
+
+![Screenshot 2021-10-08 at 2 01 41 PM](https://user-images.githubusercontent.com/89776958/136524680-d3134262-9fbb-4cc2-9d2e-1f29a5821c2d.png)
+
+## Tech used
+
+```
+* Html
+* Css
+* Bootstrap
+* Javascript / JQuery
 * Django
-* Cloudinary
+* Cloudinary (To host uploaded images on CDN)
+```
 
-# Screenshot and the Link for the Twitter clone
+## User Story
+
+```
+* Users can post tweets.
+* Users can edit tweets.
+* Users can delete tweets.
+* Users can send a like to a tweet.
+```
